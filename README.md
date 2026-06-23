@@ -1,16 +1,196 @@
-# React + Vite
+# Student Management System - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application for managing student records using Spring Boot REST APIs.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- User Registration
+- User Login
+- Dashboard
+- Add Student
+- View Students
+- Edit Student
+- Delete Student
+- React Router Navigation
+- Fetch API Integration
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- CSS
+- React Router DOM
+- Fetch API
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src
+│
+├── components
+│     Index.jsx
+│     Register.jsx
+│     Login.jsx
+│     Dashboard.jsx
+│     Navbar.jsx
+│     AddStudent.jsx
+│     ViewStudents.jsx
+│     EditStudent.jsx
+│
+├── App.jsx
+├── App.css
+└── main.jsx
+```
+
+## Backend URL
+
+```
+http://localhost:8080
+```
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+Install React Router:
+
+```bash
+npm install react-router-dom
+```
+
+## Run Application
+
+```bash
+npm run dev
+```
+
+Frontend runs on:
+
+```
+http://localhost:5173
+```
+
+## Available Pages
+
+| Route | Description |
+|---------|------------|
+| / | Home Page |
+| /register | Register User |
+| /login | Login User |
+| /dashboard | Dashboard |
+| /addstudent | Add Student |
+| /viewstudents | View Students |
+| /editstudent/:rollNo | Edit Student |
+
+## Fetch API Endpoints Used
+
+### Users
+
+```javascript
+POST /users
+GET /users
+```
+
+### Students
+
+```javascript
+POST /students
+GET /students
+GET /students/{rollNo}
+PUT /students
+DELETE /students/{rollNo}
+```
+
+---
+# Student Management System - Backend
+
+A Spring Boot REST API for managing users and students.
+
+## Features
+
+- User Registration
+- User Login
+- Add Student
+- View Students
+- Edit Student
+- Delete Student
+- MySQL Database Integration
+- Spring Data JPA
+
+## Tech Stack
+
+- Java
+- Spring Boot
+- Spring Data JPA
+- MySQL
+- Maven
+
+## Project Structure
+
+```
+src
+ ├── controller
+ ├── entity
+ ├── repository
+ ├── service
+ └── UserprojectApplication.java
+```
+
+## Entities
+
+### User
+
+- email (Primary Key)
+- name
+- password
+
+### Student
+
+- rollNo (Primary Key)
+- name
+- branch
+- cgpa
+
+## API Endpoints
+
+### User APIs
+
+| Method | Endpoint | Description |
+|----------|----------|-------------|
+| POST | /users | Register User |
+| GET | /users | Get All Users |
+
+### Student APIs
+
+| Method | Endpoint | Description |
+|----------|----------|-------------|
+| POST | /students | Add Student |
+| GET | /students | View All Students |
+| GET | /students/{rollNo} | Get Student |
+| PUT | /students | Update Student |
+| DELETE | /students/{rollNo} | Delete Student |
+
+## Database Configuration
+
+Update `application.properties`
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/studentdb
+spring.datasource.username=root
+spring.datasource.password=your_password
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+
+## Run Project
+
+```bash
+mvn spring-boot:run
+
+
+Backend runs on:
+
+http://localhost:8080
